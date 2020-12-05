@@ -1,0 +1,2 @@
+include ':taskActivity'
+rootProject.name = "AndroidHomework"

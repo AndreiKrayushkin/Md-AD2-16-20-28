@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private val SECOND_ACTIVITY_REQUEST_CODE = 0
 
     //Тут не понял, что в качестве параметра идет
-    private val adapterContact: ContactAdapter()
+    private val adapterContact = ContactAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = linearLayoutManager
 
         //И тут не совсем понял что нужно передать
-        recyclerView.adapter = ContactAdapter( )
+        recyclerView.adapter = adapterContact
 
         val buttonGoToAddView: Button = findViewById(R.id.testButtonGoToAddView)
         buttonGoToAddView.setOnClickListener {

@@ -22,7 +22,7 @@ public class CustomView extends View {
     }
 
     private int diameter;
-    boolean defaultStateFlag = true;
+    private boolean defaultStateFlag = true;
     private int centerX;
     private int centerY;
     private int radius1;
@@ -35,7 +35,7 @@ public class CustomView extends View {
     private OnCustomViewActionListener onCustomViewActionListener;
     private final Random rand = new Random();
 
-    int[] colorNewFill = getResources().getIntArray(R.array.android_colors);
+    private int[] colorNewFill = getResources().getIntArray(R.array.android_colors);
     public int gerRandColor() {
         return colorNewFill[rand.nextInt(colorNewFill.length)];
     }
@@ -142,19 +142,17 @@ public class CustomView extends View {
                         if (i < 4) {
                             paint[i].setColor(gerRandColor());
                             onCustomViewActionListener.onActionDown(x, y, paint[i].getColor());
-                            invalidate();
                         } else {
                             for (int j = 0; j < sectorLength; j++) {
                                 paint[j].setColor(gerRandColor());
                                 onCustomViewActionListener.onActionDown(x, y, paint[i].getColor());
-                                invalidate();
                             }
                         }
                     }
                 }
             }
-
         }
+        invalidate();
         return super.onTouchEvent(event);
     }
 

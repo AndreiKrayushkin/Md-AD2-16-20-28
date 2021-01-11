@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddContact::class.java)
             startActivityForResult(intent, SECOND_ACTIVITY_REQUEST_CODE)
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -40,15 +40,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
         android:hint="Phone number"/>
-<!--    <EditText-->
-<!--        android:id="@+id/addTextTESSTT"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/addTextForPhoneNumber"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:layout_margin="20dp"-->
-<!--        android:hint="TEST"/>-->
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="100dp"

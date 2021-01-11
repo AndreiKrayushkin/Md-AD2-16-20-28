@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
 
     private val SECOND_ACTIVITY_REQUEST_CODE = 0
-
-    //Тут не понял, что в качестве параметра идет
     private val adapterContact = ContactAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         recyclerView.layoutManager = linearLayoutManager
-
-        //И тут не совсем понял что нужно передать
         recyclerView.adapter = adapterContact
 
         val buttonGoToAddView: Button = findViewById(R.id.testButtonGoToAddView)
@@ -45,7 +41,6 @@ class MainActivity : AppCompatActivity() {
 
                 val contactView: Contact? = data?.getParcelableExtra("TEXT")
                 if (contactView != null) {
-                    //тут добавляем полученные данные в адаптер
                     adapterContact.addContact(contactView)
                 }
             }

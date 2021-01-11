@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
-    private lateinit var contactList: MutableList<Contact>
+//    private lateinit var contList: List
+    private var contactList = mutableListOf<Contact>()
 
     fun ContactAdapter (contactList: MutableList<Contact>) {
         this.contactList = contactList
+        notifyDataSetChanged()
     }
+    fun getContactList() = contactList
 
     //private val contactList: MutableList<Contact> = mutableListOf<Contact>()
 

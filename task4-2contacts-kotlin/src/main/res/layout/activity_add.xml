@@ -14,10 +14,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp">
         <RadioButton
+            android:id="@+id/phoneCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone number"/>
+            android:text="Phone number"
+            android:checked="true"/>
         <RadioButton
+            android:id="@+id/emailCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"/>

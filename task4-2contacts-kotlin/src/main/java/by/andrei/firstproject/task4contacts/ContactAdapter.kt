@@ -7,13 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
+class ContactAdapter (
+        var contactList: MutableList<Contact>,
+        var onClickListener: OnContactClickListener
+        ): RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
-    private var contactList = mutableListOf<Contact>()
-
-    fun ContactAdapter (contactList: MutableList<Contact>) {
-        this.contactList = contactList
-        notifyDataSetChanged()
+    interface OnContactClickListener {
+        fun onContactClick(contact: Contact, position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
@@ -23,7 +23,14 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() 
     }
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-        holder.bind(contactList[position])
+
+        val contact: Contact = contactList[position]
+
+        holder.bind(contact)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onContactClick(contact, position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -31,11 +38,11 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() 
     }
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val imageView: ImageView = itemView.findViewById(R.id.imageContacts)
-        private val textViewName: TextView = itemView.findViewById(R.id.textContactsName)
-        private val textViewPhone: TextView = itemView.findViewById(R.id.textPhoneNumber)
+        private var imageView: ImageView = itemView.findViewById(R.id.imageContacts)
+        private var textViewName: TextView = itemView.findViewById(R.id.textContactsName)
+        private var textViewPhone: TextView = itemView.findViewById(R.id.textPhoneNumber)
 
-        fun bind (contact: Contact) {
+        fun bind(contact: Contact) {
             imageView.setImageResource(contact.imageView)
             textViewName.text = contact.textContactName
             textViewPhone.text = contact.textContactPhoneOrEmail
@@ -43,9 +50,18 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() 
     }
 
     fun addContact(contact: Contact) {
-//        contactList.add(contact)
-//        notifyItemChanged(contactList.indexOf(contact))
+        contactList.add(contact)
         notifyDataSetChanged()
+    }
+
+    fun editContact(position: Int, contact: Contact) {
+        contactList[position] = contact
+        notifyItemChanged(position)
+    }
+
+    fun removeContact(position: Int) {
+        contactList.removeAt(position)
+        notifyItemRemoved(position)
     }
 
 }

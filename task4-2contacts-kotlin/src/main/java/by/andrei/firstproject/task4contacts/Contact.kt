@@ -4,6 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Contact (val imageView: Int,
-                    val textContactName: String,
-                    val textContactPhoneOrEmail: String) : Parcelable
+data class Contact (
+        var imageView: Int,
+        var textContactName: String,
+        var textContactPhoneOrEmail: String
+        ) : Parcelable

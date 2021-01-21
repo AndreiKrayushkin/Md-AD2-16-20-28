@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:content=".MainActivity">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/imageContacts"
@@ -13,26 +13,23 @@
         android:layout_height="60dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/imageContacts"
         android:layout_margin="20dp"/>
-    <ListView
+    <TextView
         android:id="@+id/textContactsName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintStart_toEndOf="@id/imageContacts"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/imageContacts"/>
     <TextView
         android:id="@+id/textPhoneNumber"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/textContactsName"
-        app:layout_constraintStart_toEndOf="@id/imageContacts"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/imageContacts"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

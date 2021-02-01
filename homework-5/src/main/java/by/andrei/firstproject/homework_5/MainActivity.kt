@@ -42,24 +42,12 @@ class MainActivity : AppCompatActivity() {
     private fun checkDataBase() {
         val carLists = dao.getCarDAO().getCarsList()
         if (carLists.isNotEmpty()) {
-            carAdapter.carList = carLists as MutableList<Car>
+            carAdapter.carList = carLists as ArrayList<Car>
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         checkDataBase()
-
-//        var carView: Car?
-//        if (requestCode == 1) {
-//            if(resultCode == RESULT_OK) {
-//                carView = data?.getParcelableExtra("TEXT")
-//                if (carView != null) {
-//                    carAdapter.addCar(carView)
-//                }
-//            }
-//        }
-
     }
 }

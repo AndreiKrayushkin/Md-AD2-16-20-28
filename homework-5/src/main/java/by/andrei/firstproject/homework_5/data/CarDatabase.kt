@@ -11,8 +11,6 @@ import androidx.room.RoomDatabase
 abstract class CarDatabase : RoomDatabase() {
     abstract fun getCarDAO(): CarDAO
 
-//    private lateinit var database: CarDatabase
-
     companion object{
         fun init(context: Context) = Room.databaseBuilder(context, CarDatabase::class.java, "database")
                 .allowMainThreadQueries()

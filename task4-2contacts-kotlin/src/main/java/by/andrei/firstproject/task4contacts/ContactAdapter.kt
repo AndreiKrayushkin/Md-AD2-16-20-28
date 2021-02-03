@@ -7,14 +7,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+typealias OnContactClickListener = (contact: Contact, position: Int) -> Unit
+
 class ContactAdapter (
         var contactList: MutableList<Contact>,
         var onClickListener: OnContactClickListener
         ): RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
-    interface OnContactClickListener {
-        fun onContactClick(contact: Contact, position: Int)
-    }
+//    interface OnContactClickListener {
+//        fun onContactClick(contact: Contact, position: Int)
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -29,7 +31,8 @@ class ContactAdapter (
         holder.bind(contact)
 
         holder.itemView.setOnClickListener {
-            onClickListener.onContactClick(contact, position)
+            onClickListener.invoke(contact, position)
+//            onClickListener.(contact, position)
         }
     }
 

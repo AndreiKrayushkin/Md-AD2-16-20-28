@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private var ADD_KEY = 0
     private var EDIT_KEY = 1
     private lateinit var adapterContact: ContactAdapter
-    private lateinit var adapterContactListener: ContactAdapter.OnContactClickListener
+    private lateinit var adapterContactListener: OnContactClickListener
 
     private lateinit var contact: Contact
 
@@ -29,9 +29,11 @@ class MainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.listContacts)
         val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
-        var intentGoEdit = Intent(this, EditContact::class.java)
-        adapterContactListener = object : ContactAdapter.OnContactClickListener {
-            override fun onContactClick(contact: Contact, position: Int) {
+        val intentGoEdit = Intent(this, EditContact::class.java)
+
+        adapterContactListener = object : OnContactClickListener {
+
+            override fun invoke(contact: Contact, position: Int) {
                 intentGoEdit.putExtra("TEXT_CONT", "HELLO")
                 this@MainActivity.contact = adapterContact.contactList[position]
                 setResult(RESULT_OK, intentGoEdit)

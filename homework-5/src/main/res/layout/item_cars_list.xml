@@ -73,8 +73,8 @@
         app:layout_constraintBottom_toBottomOf="@id/buttonPanelView"
         android:layout_marginEnd="15dp"
         android:background="@drawable/border_number_car"/>
-    <ImageView
-        android:id="@+id/buttonClickEdit"
+    <ImageButton
+        android:id="@+id/buttonClickEditCar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="@id/imageViewCar"

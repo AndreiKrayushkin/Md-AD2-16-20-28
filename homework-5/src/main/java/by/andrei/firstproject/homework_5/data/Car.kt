@@ -16,7 +16,7 @@ data class Car(
 
         @PrimaryKey(autoGenerate = true)
         @ColumnInfo
-        var id: Long? = null
+        var id: Int? = null
 
         constructor(parcel: Parcel) : this(
                 parcel.readString().toString(),
@@ -36,7 +36,7 @@ data class Car(
                 dest.writeString(model)
                 dest.writeString(registerNumber)
                 dest.writeInt(photo)
-                dest.writeLong(id ?: -1)
+                dest.writeInt(id ?: -1)
         }
 
         companion object CREATOR : Parcelable.Creator<Car> {

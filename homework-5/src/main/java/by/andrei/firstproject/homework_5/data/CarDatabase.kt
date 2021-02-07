@@ -17,5 +17,4 @@ abstract class CarDatabase : RoomDatabase() {
                 .fallbackToDestructiveMigration()
                 .build()
     }
-
 }

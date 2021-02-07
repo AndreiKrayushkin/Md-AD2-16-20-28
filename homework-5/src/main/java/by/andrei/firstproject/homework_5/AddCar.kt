@@ -15,7 +15,6 @@ class AddCar : AppCompatActivity() {
     private lateinit var addModel: EditText
     private lateinit var addPlateNumber: EditText
     private lateinit var buttonAddCar: Button
-
     private lateinit var dao: CarDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,5 +51,4 @@ class AddCar : AppCompatActivity() {
         R.drawable.ic_baseline_photo_camera_24
         )
     }
-
 }

@@ -8,7 +8,7 @@ interface CarDAO {
     fun getCarsList(): MutableList<Car>
 
     @Query("SELECT * FROM car WHERE id = :carId")
-    fun getCar(carId: Long): Car
+    fun getCar(carId: Int): Car
 
     @Insert
     fun insertAll(car: Car)

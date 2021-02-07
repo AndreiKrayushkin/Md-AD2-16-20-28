@@ -20,6 +20,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="30dp"
         android:text="add"/>
+    <Button
+        android:id="@+id/buttonDeleteInEditCarLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonApplyInEditCarLayout"
+        android:layout_margin="30dp"
+        android:text="DELETE"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/photoFloatingButtonInEditCarLayout"
         android:layout_width="50dp"

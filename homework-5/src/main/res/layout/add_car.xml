@@ -4,22 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAddCarActivity"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/grey_header">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageButton
+                android:id="@+id/backButtonAddCarListActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:background="@null"
+                android:tint="@color/white"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/content_description_button_back_to_car_list" />
+            <TextView
+                android:id="@+id/nameTitleAddCarListActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/title_add_new_car_activity"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/backButtonAddCarListActivity"/>
+            <ImageButton
+                android:id="@+id/checkButtonAddCarListActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_check_24"
+                android:background="@null"
+                android:tint="@color/white"
+                android:contentDescription="@string/content_description_check_add_car_button"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:id="@+id/imageViewCarInAddCarLayout"
         android:layout_width="0dp"
         android:layout_height="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarAddCarActivity"
         android:background="@color/grey"/>
-    <Button
-        android:id="@+id/buttonAddCarInAddCarLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="30dp"
-        android:text="add"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/photoFloatingButtonInAddCarLayout"
         android:layout_width="50dp"
@@ -31,14 +66,15 @@
         app:layout_constraintEnd_toEndOf="@id/imageViewCarInAddCarLayout"
         app:layout_constraintBottom_toBottomOf="@id/imageViewCarInAddCarLayout"
         app:layout_constraintTop_toBottomOf="@id/imageViewCarInAddCarLayout"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/content_description_make_photo_button" />
     <TextView
         android:id="@+id/textBackgroundInfoInAddCarLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:text="No photo"
+        android:text="@string/background_text_image_car_add_car"
         app:layout_constraintStart_toStartOf="@id/imageViewCarInAddCarLayout"
         app:layout_constraintEnd_toEndOf="@id/imageViewCarInAddCarLayout"
         app:layout_constraintTop_toTopOf="@id/imageViewCarInAddCarLayout"
@@ -47,7 +83,7 @@
         android:id="@+id/headerOwnerNameInAddCarLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Owner name"
+        android:text="@string/owner_name_header_add_car"
         android:textColor="@color/purple_line"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageViewCarInAddCarLayout"
@@ -62,7 +98,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerOwnerNameInAddCarLayout"
         android:backgroundTint="@color/purple_line"
-        android:hint="Enter name"
+        android:hint="@string/hint_owner_name_add_car"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"/>
     <TextView
@@ -71,7 +107,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editOwnerNameInAddCarLayout"
-        android:text="Producer"
+        android:text="@string/producer_header_add_car"
         android:textColor="@color/purple_line"
         android:layout_marginStart="20dp"
         android:textSize="16sp"
@@ -86,14 +122,14 @@
         android:layout_marginStart="20dp"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.45"
-        android:hint="Enter producer"/>
+        android:hint="@string/hint_producer_add_car"/>
     <TextView
         android:id="@+id/headerModelInAddCarLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/editModelInAddCarLayout"
         app:layout_constraintTop_toBottomOf="@id/editOwnerNameInAddCarLayout"
-        android:text="Model"
+        android:text="@string/model_header_add_car"
         android:textColor="@color/purple_line"
         android:textSize="16sp"
         android:layout_marginTop="10dp"/>
@@ -107,7 +143,7 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.45"
-        android:hint="Enter model"/>
+        android:hint="@string/hint_model_add_car"/>
     <TextView
         android:id="@+id/headerPlateNumberInAddCarLayout"
         android:layout_width="wrap_content"
@@ -115,7 +151,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editProducerInAddCarLayout"
         android:textSize="16sp"
-        android:text="Plate number"
+        android:text="@string/plate_number_header_add_car"
         android:textColor="@color/purple_line"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"/>
@@ -127,7 +163,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerPlateNumberInAddCarLayout"
         android:backgroundTint="@color/purple_line"
-        android:hint="Enter plate number"
+        android:hint="@string/hint_plate_number_add_car"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"/>
 

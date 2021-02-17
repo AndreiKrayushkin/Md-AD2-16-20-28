@@ -6,10 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database
-(entities = [Car::class], version = 1)
+(entities = [Car::class, Work::class], version = 2)
 
 abstract class CarDatabase : RoomDatabase() {
     abstract fun getCarDAO(): CarDAO
+    abstract fun getWorkDAO(): WorkDAO
 
     companion object{
         fun init(context: Context) = Room.databaseBuilder(context, CarDatabase::class.java, "database")

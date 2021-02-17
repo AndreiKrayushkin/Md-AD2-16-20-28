@@ -23,7 +23,9 @@ data class Car(
                 parcel.readString().toString(),
                 parcel.readString().toString(),
                 parcel.readString().toString(),
-                parcel.readInt()) {
+                parcel.readInt()
+        ){
+                parcel.readInt()
         }
 
         override fun describeContents(): Int {

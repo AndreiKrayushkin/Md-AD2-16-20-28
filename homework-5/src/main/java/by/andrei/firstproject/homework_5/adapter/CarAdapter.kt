@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import by.andrei.firstproject.homework_5.R
 import by.andrei.firstproject.homework_5.data.Car
 
-typealias OnCarClickListener = (car: Car, position: Int) -> Unit
+typealias OnCarClickListener = (car: Car, position: Int, operation: Int) -> Unit
+private const val OPERATION_EDIT_CAR: Int = 1
+private const val OPERATION_WORK_ADD: Int = 2
 
 class CarAdapter(
         var carList: MutableList<Car>,
         var onCarClickListener: OnCarClickListener
         ) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
         val view: View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_cars_list, parent, false)
@@ -25,7 +26,6 @@ class CarAdapter(
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
         val car: Car = carList[position]
-
         holder.bind(car, onCarClickListener)
     }
 
@@ -49,7 +49,10 @@ class CarAdapter(
             photoCar.setImageResource(car.photo)
 
             buttonEditCarMainActivity.setOnClickListener {
-                onCarClickListener.invoke(car, adapterPosition)
+                onCarClickListener.invoke(car, adapterPosition, OPERATION_EDIT_CAR)
+            }
+            itemView.setOnClickListener {
+                onCarClickListener.invoke(car, adapterPosition, OPERATION_WORK_ADD)
             }
         }
     }

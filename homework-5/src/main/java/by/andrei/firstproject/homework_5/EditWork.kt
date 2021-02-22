@@ -89,11 +89,14 @@ class EditWork : AppCompatActivity() {
     }
 
     private fun setDataInView() {
-        textWorkNameTitle.text = work?.workName
-        editWorkName.setText(work?.workName)
-        editCost.setText(work?.cost)
-        editDescription.setText(work?.description)
-        dateWork.text = work?.applicationDate
+        work?.let {
+            textWorkNameTitle.text = it.workName
+            editWorkName.setText(it.workName)
+            editCost.setText(it.cost)
+            editDescription.setText(it.description)
+            dateWork.text = it.applicationDate
+        }
+
         when (intent.getStringExtra(statusWork)) {
             getString(R.string.progress_pending) -> setStatusPending()
             getString(R.string.progress_in_progress) -> setStatusInProgress()

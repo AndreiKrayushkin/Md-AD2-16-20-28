@@ -56,10 +56,12 @@ class EditCar: AppCompatActivity() {
 
     private fun setTextInView() {
         photoImageViewInEdit.setImageResource(R.drawable.ic_baseline_arrow_forward_24)
-        editOwnerNameInEditCar.setText(car?.nameOwner)
-        editProducerInEditCar.setText(car?.producer)
-        editModelInEditCar.setText(car?.model)
-        editPlateNumberInEditCar.setText(car?.registerNumber)
+        car?.let {
+            editOwnerNameInEditCar.setText(it.nameOwner)
+            editProducerInEditCar.setText(it.producer)
+            editModelInEditCar.setText(it.model)
+            editPlateNumberInEditCar.setText(it.registerNumber)
+        }
     }
 
     private fun getCarExtra(intent: Intent) {

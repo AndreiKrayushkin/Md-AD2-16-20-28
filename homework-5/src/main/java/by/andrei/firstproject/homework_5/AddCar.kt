@@ -7,7 +7,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import by.andrei.firstproject.homework_5.data.Car
 import by.andrei.firstproject.homework_5.data.CarDatabase
-
+//
 class AddCar : AppCompatActivity() {
     private lateinit var addOwnerName: EditText
     private lateinit var addProducer: EditText

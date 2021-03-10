@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 private const val WORK_URI = "by.andrei.firstproject.homework_6_1_car.data.WorkProvider"
 private const val WORK_PATH = "database"
 private const val URL = "content://$WORK_URI/$WORK_PATH"
+//private const val URL = "content://by.andrei.firstproject.homework_6_1_car.data.WorkProvider/database"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var workAdapter: WorkAdapter
@@ -30,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             layoutManager = linearLayoutManager
             workAdapter.updateList(getWorkData())
         }
-        getWorkData()
     }
 
     private fun getWorkData() : ArrayList<Work>{
@@ -51,12 +51,12 @@ class MainActivity : AppCompatActivity() {
                 Log.v("Log_view", "hello")
                 workList.add(
                         Work (
-                                this.getColumnIndex("workName").toString(),
-                                this.getColumnIndex("cost").toString(),
-                                this.getColumnIndex("description").toString(),
-                                this.getColumnIndex("applicationData").toString(),
-                                this.getColumnIndex("progressWork").toString(),
-                                this.getColumnIndex("colorStatus")
+                                getString(getColumnIndex("workName")),
+                                getString(getColumnIndex("cost")),
+                                getString(getColumnIndex("description")),
+                                getString(getColumnIndex("applicationDate")),
+                                getString(getColumnIndex("progressWork")),
+                                getInt(getColumnIndex("colorStatus"))
                         )
                 )
             }

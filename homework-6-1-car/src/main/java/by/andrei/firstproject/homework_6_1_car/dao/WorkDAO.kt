@@ -22,6 +22,9 @@ interface WorkDAO {
     @Query("SELECT * FROm work_item")
     fun getWorkProvider(): Cursor
 
+    @Query("DELETE FROM work_item")
+    fun deleteAllList()
+
     @Insert
     fun insertAll(work: Work)
 

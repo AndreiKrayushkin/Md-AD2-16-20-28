@@ -52,6 +52,7 @@ class AddWork : AppCompatActivity() {
         dateWork.text = getTimeWork()
         workDAO = CarDatabase.init(this).getWorkDAO()
         setProgress()
+        val time =
         buttonAddWork.setOnClickListener {
             createWorkObject().apply {
                 parentCar = intent.getStringExtra(parentCarName)
@@ -78,7 +79,7 @@ class AddWork : AppCompatActivity() {
                     workName = nameWork.text.toString(),
                     cost = cost.text.toString(),
                     description = description.text.toString(),
-                    applicationDate = getTimeWork(),
+                    applicationDate = dateWork.text.toString(),
                     progressWork = progress,
                     colorStatus = color
             )

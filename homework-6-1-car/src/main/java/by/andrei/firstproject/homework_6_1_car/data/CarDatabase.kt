@@ -20,20 +20,4 @@ abstract class CarDatabase : RoomDatabase() {
                 .fallbackToDestructiveMigration()
                 .build()
     }
-
-//    companion object {
-//        private var INSTANCE: CarDatabase? = null
-//        fun getDataBase(context: Context): CarDatabase {
-//            if (INSTANCE == null) {
-//                INSTANCE = Room.databaseBuilder(
-//                        context,
-//                        CarDatabase::class.java,
-//                        "database")
-//                        .allowMainThreadQueries()
-//                        .build()
-//            }
-//            return INSTANCE as CarDatabase
-//        }
-//    }
-
 }

@@ -22,7 +22,7 @@ class WorkProvider : ContentProvider() {
     }
 
     override fun onCreate(): Boolean {
-        workDatabase = context?.run { CarDatabase.init(this.applicationContext) }
+        workDatabase = context?.run { CarDatabase.getDatabase(this.applicationContext) }
         return true
     }
 

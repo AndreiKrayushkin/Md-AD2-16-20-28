@@ -7,7 +7,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import by.andrei.firstproject.homework_5.data.Car
 import by.andrei.firstproject.homework_5.data.CarDatabase
-//
+
 class AddCar : AppCompatActivity() {
     private lateinit var addOwnerName: EditText
     private lateinit var addProducer: EditText
@@ -28,7 +28,7 @@ class AddCar : AppCompatActivity() {
         buttonAddCar = findViewById(R.id.checkButtonAddCarListActivity)
         buttonBackToCarList = findViewById(R.id.backButtonAddCarListActivity)
 
-        dao = CarDatabase.init(this)
+        dao = CarDatabase.getDatabase(this)
         buttonAddCar.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             val car = createCarObject()

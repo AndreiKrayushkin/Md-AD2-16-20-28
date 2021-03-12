@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         //не описано действие для данной кнопки поиска автомобилей
         searchButton = findViewById(R.id.searchButtonCarListActivity)
 
-        dao = CarDatabase.init(this)
+        dao = CarDatabase.getDatabase(this)
 
         val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 

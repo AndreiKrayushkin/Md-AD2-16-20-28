@@ -46,7 +46,7 @@ class WorkListActivity: AppCompatActivity() {
 
         getIntentData(intent)
         getTitleCar()
-        workDAO = CarDatabase.init(this).getWorkDAO()
+        workDAO = CarDatabase.getDatabase(this).getWorkDAO()
 
         buttonAddWork.setOnClickListener {
             Intent(this, AddWork::class.java).apply {

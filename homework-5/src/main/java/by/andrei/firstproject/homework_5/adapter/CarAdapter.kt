@@ -19,13 +19,13 @@ class CarAdapter(
         var onCarClickListener: OnCarClickListener
         ) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
-        val view: View = LayoutInflater.from(parent.context)
+        val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_cars_list, parent, false)
         return CarViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
-        val car: Car = carList[position]
+        val car = carList[position]
         holder.bind(car, onCarClickListener)
     }
 

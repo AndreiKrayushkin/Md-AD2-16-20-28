@@ -37,7 +37,7 @@ class EditCar: AppCompatActivity() {
         buttonEditImageInEditCar = findViewById(R.id.photoFloatingButtonInEditCarLayout)
         buttonBackToCarList = findViewById(R.id.backButtonEditCarListActivity)
 
-        dao = CarDatabase.init(this)
+        dao = CarDatabase.getDatabase(this)
         getCarExtra(intent)
         if (car != null) {
             setTextInView()

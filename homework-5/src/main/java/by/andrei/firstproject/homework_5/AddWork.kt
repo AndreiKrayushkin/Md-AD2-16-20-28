@@ -46,7 +46,7 @@ class AddWork: AppCompatActivity() {
         buttonBackToWorkList = findViewById(R.id.backButtonAddWorkListActivity)
 
         dateWork.text = getTimeWork()
-        workDAO = CarDatabase.init(this).getWorkDAO()
+        workDAO = CarDatabase.getDatabase(this).getWorkDAO()
         setProgress()
         buttonAddWork.setOnClickListener {
             createWorkObject().apply {

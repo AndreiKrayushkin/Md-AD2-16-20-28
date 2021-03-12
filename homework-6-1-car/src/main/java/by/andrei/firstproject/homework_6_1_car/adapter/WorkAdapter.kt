@@ -13,17 +13,17 @@ import by.andrei.firstproject.homework_6_1_car.data.Work
 typealias OnWorkClickListener = (work: Work, position: Int) -> Unit
 
 class WorkAdapter(
-        var workList: MutableList<Work>,
+        var workList: ArrayList<Work>,
         var onWorkClickListener: OnWorkClickListener
         ) : RecyclerView.Adapter<WorkAdapter.WorkViewHolder>()  {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkViewHolder {
-        val view: View = LayoutInflater.from(parent.context)
+        val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_works_list, parent, false)
         return WorkViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: WorkViewHolder, position: Int) {
-        val work: Work = workList[position]
+        val work = workList[position]
         holder.bind(work, onWorkClickListener)
     }
 

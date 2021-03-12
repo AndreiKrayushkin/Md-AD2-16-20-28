@@ -10,7 +10,7 @@ import by.andrei.firstproject.homework_6_1_car.data.Car
 @Dao
 interface CarDAO {
     @Query("SELECT * FROM car")
-    fun getCarsList(): MutableList<Car>
+    fun getCarsList(): List<Car>
 
     @Query("SELECT * FROM car WHERE id = :carId")
     fun getCar(carId: Int): Car

@@ -54,7 +54,7 @@ class EditWork : AppCompatActivity() {
         textStatusWorkInProgress = findViewById(R.id.textProgressEditWorkActivity)
         textStatusWorkCompleted = findViewById(R.id.textCompletedEditWorkActivity)
 
-        workDAO = CarDatabase.init(this).getWorkDAO()
+        workDAO = CarDatabase.getDatabase(this).getWorkDAO()
         getWorkData(intent)
         if (work != null) {
             setDataInView()

@@ -45,7 +45,7 @@ class WorkListActivity : AppCompatActivity() {
 
         getIntentData(intent)
         getTitleCar()
-        workDAO = CarDatabase.init(this).getWorkDAO()
+        workDAO = CarDatabase.getDatabase(this).getWorkDAO()
 
         buttonAddWork.setOnClickListener {
             Intent(this, AddWork::class.java).apply {
@@ -69,7 +69,7 @@ class WorkListActivity : AppCompatActivity() {
         }
 
         val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        workAdapter = WorkAdapter(mutableListOf(), onWorkClickListener)
+        workAdapter = WorkAdapter(arrayListOf(), onWorkClickListener)
         recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = workAdapter
@@ -79,7 +79,7 @@ class WorkListActivity : AppCompatActivity() {
 
     private fun checkDataBase() {
         val workList = workDAO.getWorkFromParentsCar(parentCar)
-        workAdapter.workList = workList
+        workAdapter.workList = workList as ArrayList<Work>
         workAdapter.notifyDataSetChanged()
     }
 

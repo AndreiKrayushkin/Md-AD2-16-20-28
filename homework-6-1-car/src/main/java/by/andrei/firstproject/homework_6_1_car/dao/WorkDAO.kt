@@ -11,13 +11,13 @@ import by.andrei.firstproject.homework_6_1_car.data.Work
 @Dao
 interface WorkDAO {
     @Query ("SELECT * FROM work_item")
-    fun getWorkList(): MutableList<Work>
+    fun getWorkList(): List<Work>
 
     @Query("SELECT * FROM work_item WHERE id = :workId")
     fun getWork(workId: Int): Work
 
     @Query("SELECT * FROM work_item WHERE parentCar LIKE :parentCar")
-    fun getWorkFromParentsCar(parentCar: String?): MutableList<Work>
+    fun getWorkFromParentsCar(parentCar: String?): List<Work>
 
     @Query("SELECT * FROm work_item")
     fun getWorkProvider(): Cursor

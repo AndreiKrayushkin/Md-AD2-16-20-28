@@ -3,10 +3,8 @@ package by.andrei.firstproject.homework_6_1_car
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
-
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.andrei.firstproject.homework_6_1_car.adapter.CarAdapter
@@ -44,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         //не описано действие для данной кнопки поиска автомобилей
         searchButton = findViewById(R.id.searchButtonCarListActivity)
 
-        dao = CarDatabase.init(this)
+        dao = CarDatabase.getDatabase(this)
 
         val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
@@ -66,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        carAdapter = CarAdapter(mutableListOf(), onCarClickListener  )
+        carAdapter = CarAdapter(arrayListOf(), onCarClickListener  )
         recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = carAdapter
@@ -76,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkDataBase() {
         val carLists = dao.getCarDAO().getCarsList()
-        carAdapter.carList = carLists
+        carAdapter.carList = carLists as ArrayList<Car>
         carAdapter.notifyDataSetChanged()
     }
 

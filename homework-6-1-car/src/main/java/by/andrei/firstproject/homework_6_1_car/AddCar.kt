@@ -46,7 +46,7 @@ class AddCar : AppCompatActivity() {
         addPhoto = findViewById(R.id.photoFloatingButtonInAddCarLayout)
         photoCar = findViewById(R.id.imageViewCarInAddCarLayout)
 
-        dao = CarDatabase.init(this)
+        dao = CarDatabase.getDatabase(this)
         buttonAddCar.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             val car = createCarObject()

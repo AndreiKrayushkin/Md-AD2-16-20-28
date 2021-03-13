@@ -14,10 +14,6 @@ class ContactAdapter (
         var onClickListener: OnContactClickListener
         ): RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
-//    interface OnContactClickListener {
-//        fun onContactClick(contact: Contact, position: Int)
-//    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view: View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_image_info, parent, false)
@@ -32,7 +28,6 @@ class ContactAdapter (
 
         holder.itemView.setOnClickListener {
             onClickListener.invoke(contact, position)
-//            onClickListener.(contact, position)
         }
     }
 

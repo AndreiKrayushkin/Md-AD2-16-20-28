@@ -8,8 +8,9 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 
+private const val CONTACT_INFO = "CONTACT_INFO"
+
 class AddContact : AppCompatActivity() {
-    private lateinit var contact: Contact
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
@@ -30,23 +31,15 @@ class AddContact : AppCompatActivity() {
         buttonAddContactInfo.setOnClickListener {
             val textName = setTextName.text.toString()
             val textPhoneOrEmail = setTextPhoneOrEmail.text.toString()
-
-            var image = 0
-
-            image = if (radioPhone.isChecked) {
+            val image = if (radioPhone.isChecked) {
                 R.drawable.ic_baseline_contact_phone_24
             } else {
                 R.drawable.ic_baseline_contact_mail_24
             }
 
-//            val intent = Intent(this, MainActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-//            contact = Contact(image, textName, textPhoneOrEmail)
-//            intent.putExtra("TEXT", contact)
-
             val intent = Intent(this, MainActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-                putExtra("TEXT", Contact(image, textName, textPhoneOrEmail))
+                putExtra(CONTACT_INFO, Contact(image, textName, textPhoneOrEmail))
             }
 
             setResult(RESULT_OK, intent)

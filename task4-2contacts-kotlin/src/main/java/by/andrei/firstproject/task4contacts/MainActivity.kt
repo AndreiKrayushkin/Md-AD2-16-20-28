@@ -11,10 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
+private const val CONTACT_INFO = "CONTACT_INFO"
+private const val ADD_KEY = 0
+private const val EDIT_KEY = 1
+private const val THIS_POSITION = "THIS_POSITION"
+private const val THIS_CONTACT = "THIS_CONTACT"
+private const val CORRECTED_CONTACT = "CORRECTED_CONTACT"
+
 class MainActivity : AppCompatActivity() {
 
-    private var ADD_KEY = 0
-    private var EDIT_KEY = 1
     private lateinit var adapterContact: ContactAdapter
     private lateinit var adapterContactListener: OnContactClickListener
 
@@ -34,11 +39,10 @@ class MainActivity : AppCompatActivity() {
         adapterContactListener = object : OnContactClickListener {
 
             override fun invoke(contact: Contact, position: Int) {
-                intentGoEdit.putExtra("TEXT_CONT", "HELLO")
                 this@MainActivity.contact = adapterContact.contactList[position]
                 setResult(RESULT_OK, intentGoEdit)
-                intentGoEdit.putExtra("contact", contact)
-                intentGoEdit.putExtra("position", position)
+                intentGoEdit.putExtra(THIS_CONTACT, contact)
+                intentGoEdit.putExtra(THIS_POSITION, position)
                 setResult(RESULT_OK, intentGoEdit)
                 startActivityForResult(intentGoEdit, EDIT_KEY)
             }
@@ -62,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == ADD_KEY) {
             if(resultCode == RESULT_OK) {
                 val tBG = findViewById<TextView>(R.id.backgroundTextInfo)
-                contactView = data?.getParcelableExtra("TEXT")
+                contactView = data?.getParcelableExtra(CONTACT_INFO)
                 if (contactView != null) {
                     adapterContact.addContact(contactView)
                     tBG.visibility = View.INVISIBLE
@@ -72,8 +76,8 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == EDIT_KEY) {
             if(resultCode == RESULT_OK) {
-                contactView = data?.getParcelableExtra("edit text")
-                val position = data?.getIntExtra("position", 0)
+                contactView = data?.getParcelableExtra(CORRECTED_CONTACT)
+                val position = data?.getIntExtra(THIS_POSITION, 0)
                 if (contactView != null) {
                     adapterContact.editContact(position!!, contactView)
                 } else {

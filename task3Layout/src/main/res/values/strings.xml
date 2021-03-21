@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">POI</string>
+    <string name="attractions">Attractions</string>
+    <string name="dining">Dining</string>
+    <string name="education">Education</string>
+    <string name="family">Family</string>
+    <string name="health">Health</string>
+    <string name="office">Office</string>
+    <string name="promotions">Promotions</string>
+    <string name="radio">Radio</string>
+    <string name="recipes">Recipes</string>
+    <string name="sport">Sport</string>
+    <string name="title">Title</string>
+    <string name="price">Price</string>
+    <string name="location">Location</string>
+    <string name="description">Description</string>
+    <string name="inventory">Inventory</string>
+    <string name="weight">Weight</string>
+    <string name="bg_strinh_photo">PHOTO</string>
+    <string name="signIN">Sign in</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="remember">Remember</string>
+    <string name="forgotPass">Forgot password?</string>
+    <string name="justSignIn">* Just sing in</string>
+    <string name="android">Android</string>
+    <string name="posts">Posts</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="username">Username</string>
+    <string name="address">Address</string>
+    <string name="direction">Directions</string>
+    <string name="call">Call</string>
+    <string name="save">Save</string>
+    <string name="website">Website</string>
+    <string name="photo">Photo</string>
+    <string name="certificated">Certificated</string>
+    <string name="layouts">Layouts</string>
+    <string name="view">View</string>
+
+</resources>

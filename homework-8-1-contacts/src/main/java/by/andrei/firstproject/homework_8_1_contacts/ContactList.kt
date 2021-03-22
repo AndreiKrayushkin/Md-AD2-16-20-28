@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.andrei.firstproject.homework_8_1_contacts.adapter.ContactAdapter
 import by.andrei.firstproject.homework_8_1_contacts.adapter.OnContactClickListener
+import by.andrei.firstproject.homework_8_1_contacts.const.Constants
+import by.andrei.firstproject.homework_8_1_contacts.const.Constants.CONTACT_ADD_FRAGMENT
 import by.andrei.firstproject.homework_8_1_contacts.data.Contact
+import by.andrei.firstproject.homework_8_1_contacts.databinding.FragmentListBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ContactList : Fragment(R.layout.fragment_list) {
@@ -23,7 +26,6 @@ class ContactList : Fragment(R.layout.fragment_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         addNewContact = view.findViewById(R.id.testButtonGoToAddView)
         recyclerView = view.findViewById(R.id.listContacts)
         contactClickListener = object : OnContactClickListener {
@@ -33,16 +35,22 @@ class ContactList : Fragment(R.layout.fragment_list) {
         }
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
-        adapterContact = ContactAdapter(arrayListOf(), contactClickListener)
+        val bundle: Bundle? = arguments
+        adapterContact = ContactAdapter(mutableListOf(), contactClickListener)
+
+        if (bundle != null) {
+            val getContact: Contact? = bundle.getParcelable("KEY")
+            adapterContact.addContact(getContact)
+        }
 
 //        val bundle = arguments?.getParcelable<Contact>("KEY")
 //        val getContact: Contact? = bundle.getParcelable("KEY")
 //        adapterContact.addContact(getContact)
-//        Log.v("LOG_VIEW", bundle.toString())
+        val value = adapterContact.contactList
+        Log.v("LOG_VIEW", value.toString())
 
-        val bundle: Bundle? = arguments
-        val getContact: Contact? = bundle?.getParcelable("KEY")
-        adapterContact.addContact(getContact)
+
+
 //        Log.v("LOG_VIEW", getContact.toString())
 
         recyclerView.apply {
@@ -51,9 +59,11 @@ class ContactList : Fragment(R.layout.fragment_list) {
         }
 
         addNewContact.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, ContactAdd())
-                    .commit()
+            (activity as OnChangeFragmentListener).onFragmentChange(CONTACT_ADD_FRAGMENT, bundle)
+
+//            requireActivity().supportFragmentManager.beginTransaction()
+//                    .replace(R.id.fragment_container, ContactAdd())
+//                    .commit()
         }
     }
 

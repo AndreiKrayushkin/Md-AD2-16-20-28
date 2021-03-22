@@ -12,7 +12,7 @@ import by.andrei.firstproject.homework_8_1_contacts.data.Contact
 typealias OnContactClickListener = (contact: Contact, position: Int) -> Unit
 
 class ContactAdapter(
-        var contactList: ArrayList<Contact>,
+        var contactList: MutableList<Contact>,
         var onClickListener: OnContactClickListener
 ) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 

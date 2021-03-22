@@ -48,46 +48,9 @@ class ContactAdd : Fragment(R.layout.fragment_add) {
                 R.drawable.ic_baseline_local_post_office_24
             }
             val bundle = Bundle()
-            val newFragment = ContactList()
-
             bundle.putParcelable("KEY", Contact(getImage, getName, getPhone))
-//                newFragment.arguments = bundle
 
             (activity as OnChangeFragmentListener).onFragmentChange(CONTACT_LIST_FRAGMENT, bundle)
-        }
-
-/*
-        buttonAddContactInfo.setOnClickListener {
-//            val intent = Intent(context, ContactList::class.java).apply {
-//                putExtra("KEY", Contact(getImage, getName, getPhone))
-//            }
-val getName = setTextName.text.toString()
-        val getPhone = setTextPhoneOrEmail.text.toString()
-        val getImage = if(radioPhone.isChecked) {
-            R.drawable.ic_baseline_local_phone_24
-        } else {
-            R.drawable.ic_baseline_local_post_office_24
-        }
-            val bundle = Bundle()
-            val newFragment = ContactList()
-
-            bundle.putParcelable("KEY", Contact(getImage, getName, getPhone))
-            newFragment.arguments = bundle
-
-            requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, newFragment)
-                    .commit()
-        }
-        */
-    }
-
-    private fun setContactObject() {
-        val getName = setTextName.text.toString()
-        val getPhone = setTextPhoneOrEmail.text.toString()
-        val getImage = if (radioPhone.isChecked) {
-            R.drawable.ic_baseline_local_phone_24
-        } else {
-            R.drawable.ic_baseline_local_post_office_24
         }
     }
 }

@@ -36,22 +36,12 @@ class ContactList : Fragment(R.layout.fragment_list) {
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
         val bundle: Bundle? = arguments
-        adapterContact = ContactAdapter(mutableListOf(), contactClickListener)
+        adapterContact = ContactAdapter(contactClickListener)
 
         if (bundle != null) {
             val getContact: Contact? = bundle.getParcelable("KEY")
             adapterContact.addContact(getContact)
         }
-
-//        val bundle = arguments?.getParcelable<Contact>("KEY")
-//        val getContact: Contact? = bundle.getParcelable("KEY")
-//        adapterContact.addContact(getContact)
-        val value = adapterContact.contactList
-        Log.v("LOG_VIEW", value.toString())
-
-
-
-//        Log.v("LOG_VIEW", getContact.toString())
 
         recyclerView.apply {
             layoutManager = linearLayoutManager
@@ -60,10 +50,6 @@ class ContactList : Fragment(R.layout.fragment_list) {
 
         addNewContact.setOnClickListener {
             (activity as OnChangeFragmentListener).onFragmentChange(CONTACT_ADD_FRAGMENT, bundle)
-
-//            requireActivity().supportFragmentManager.beginTransaction()
-//                    .replace(R.id.fragment_container, ContactAdd())
-//                    .commit()
         }
     }
 

@@ -12,9 +12,10 @@ import by.andrei.firstproject.homework_8_1_contacts.data.Contact
 typealias OnContactClickListener = (contact: Contact, position: Int) -> Unit
 
 class ContactAdapter(
-        var contactList: MutableList<Contact>,
         var onClickListener: OnContactClickListener
 ) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
+
+    private var contactList: MutableList<Contact> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view = LayoutInflater.from(parent.context)

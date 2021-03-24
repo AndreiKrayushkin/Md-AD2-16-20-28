@@ -18,13 +18,13 @@
             android:id="@+id/phoneCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone number"
+            android:text="@string/fragment_add_radio_button_background_number"
             android:checked="true"/>
         <RadioButton
             android:id="@+id/emailCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"/>
+            android:text="@string/fragment_add_radio_button_background_email"/>
     </RadioGroup>
     <EditText
         android:id="@+id/addTextForName"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
-        android:hint="Name"/>
+        android:hint="@string/fragment_add_hint_edit_text_name"/>
     <EditText
         android:id="@+id/addTextForPhoneNumber"
         android:layout_width="match_parent"
@@ -43,14 +43,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
-        android:hint="Phone number"/>
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="30dp"
-        android:text="ADD"/>
+        android:hint="@string/fragment_add_hint_edit_text_phone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

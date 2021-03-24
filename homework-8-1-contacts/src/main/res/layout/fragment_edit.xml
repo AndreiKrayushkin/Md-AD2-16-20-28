@@ -12,8 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp"
-        android:hint="Name"/>
+        android:layout_margin="20dp"/>
     <EditText
         android:id="@+id/editTextForEmail"
         android:layout_width="0dp"
@@ -21,26 +20,16 @@
         app:layout_constraintTop_toBottomOf="@id/editTextForName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp"
-        android:hint="Email"/>
-    <Button
-        android:id="@+id/buttonEdit"
-        android:layout_width="0dp"
-        android:layout_margin="40dp"
-        android:layout_height="wrap_content"
-        android:text="Edit"
+        android:layout_margin="20dp"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonDeleteThisContact"
+        android:layout_height="55dp"
+        android:layout_width="55dp"
         android:backgroundTint="@color/red"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_delete_outline_24"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <Button
-        android:id="@+id/buttonRemove"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Remove"
-        app:layout_constraintBottom_toTopOf="@id/buttonEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="40dp"/>
+        android:layout_margin="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

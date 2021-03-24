@@ -12,10 +12,9 @@ import by.andrei.firstproject.homework_8_1_contacts.data.Contact
 typealias OnContactClickListener = (contact: Contact, position: Int) -> Unit
 
 class ContactAdapter(
+        var contactList: ArrayList<Contact>,
         var onClickListener: OnContactClickListener
 ) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
-
-    private var contactList: MutableList<Contact> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -35,7 +34,7 @@ class ContactAdapter(
     override fun getItemCount(): Int = contactList.size
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var imageView: ImageView = itemView.findViewById(R.id.imageContacts)
+        private var imageView: ImageView = itemView.findViewById(R.id.typeImage)
         private var nameContact: TextView = itemView.findViewById(R.id.textContactsName)
         private var phoneOrEmail: TextView = itemView.findViewById(R.id.textPhoneNumber)
 
@@ -44,20 +43,5 @@ class ContactAdapter(
             nameContact.text = contact.nameContact
             phoneOrEmail.text = contact.phoneOrEmailContact
         }
-    }
-
-    fun addContact(contact: Contact?) {
-        contactList.add(contact!!)
-        notifyDataSetChanged()
-    }
-
-    fun editContact(position: Int, contact: Contact) {
-        contactList[position] = contact
-        notifyItemChanged(position)
-    }
-
-    fun removeContact(position: Int) {
-        contactList.removeAt(position)
-        notifyItemRemoved(position)
     }
 }

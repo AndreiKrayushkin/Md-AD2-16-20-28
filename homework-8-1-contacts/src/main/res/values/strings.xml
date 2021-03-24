@@ -1,3 +1,10 @@
 <resources>
+    <!-- Total -->
     <string name="app_name">Homework-8-1-contacts</string>
+    <!-- Add contact -->
+    <string name="fragment_add_name_title">Add contact</string>
+    <string name="fragment_add_radio_button_background_number">Phone number</string>
+    <string name="fragment_add_radio_button_background_email">Email</string>
+    <string name="fragment_add_hint_edit_text_name">Name</string>
+    <string name="fragment_add_hint_edit_text_phone">Phone number</string>
 </resources>

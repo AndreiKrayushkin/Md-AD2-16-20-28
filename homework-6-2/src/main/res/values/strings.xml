@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Homework-6-2</string>
+    <string name="background_text_photo_item">IMAGE</string>
+    <string name="photo_description">Photo</string>
+</resources>
